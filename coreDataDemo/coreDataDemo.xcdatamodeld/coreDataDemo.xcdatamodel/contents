@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21279" systemVersion="22C65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="BusinessesEntity" representedClassName="BusinessesEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="departments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DepartmentsEntity" inverseName="businesses" inverseEntity="DepartmentsEntity"/>
+        <relationship name="employees" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EmployeesEntity" inverseName="businees" inverseEntity="EmployeesEntity"/>
+    </entity>
+    <entity name="DepartmentsEntity" representedClassName="DepartmentsEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="businesses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BusinessesEntity" inverseName="departments" inverseEntity="BusinessesEntity"/>
+        <relationship name="employees" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EmployeesEntity" inverseName="department" inverseEntity="EmployeesEntity"/>
+    </entity>
+    <entity name="EmployeesEntity" representedClassName="EmployeesEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="dob" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="salary" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="verified" optional="YES" attributeType="Boolean" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="businees" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BusinessesEntity" inverseName="employees" inverseEntity="BusinessesEntity"/>
+        <relationship name="department" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DepartmentsEntity" inverseName="employees" inverseEntity="DepartmentsEntity"/>
+    </entity>
+    <entity name="UserEntity" representedClassName="UserEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="firstName" optional="YES" attributeType="String"/>
+        <attribute name="lastName" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Users" representedClassName="Users" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
+</model>
